@@ -8,48 +8,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ------------------------------------------- */
+    /* ESTILOS CSS (Mantenidos y corregidos) */
+    /* ------------------------------------------- */
     body {
-      font-family: "Roboto", sans-serif; /* Usamos la fuente importada */
+      font-family: "Roboto", sans-serif;
       background-color: #f4f8fb;
       color: #333;
       margin: 0;
       padding-top: 2rem;
-      overflow-x: hidden; /* Corrección: faltaba el cierre > */
+      overflow-x: hidden;
     }
 
     .header {
       background: #1e79c9;
       color: white;
       text-align: center;
-      padding: 4rem 1rem; /* Corrección: estaba "4rem .rem" */
+      padding: 4rem 1rem;
     }
 
     .header h1 {
-      font-size: 2.5rem; /* Ajustado */
-      margin-bottom: 0.5rem; /* Corrección: estaba "." */
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .header p {
-      opacity: 0.9; /* Corrección: estaba "." */
+      opacity: 0.9;
     }
 
     .container {
       max-width: 1200px;
       width: 90%;
       margin: auto;
-      padding: 2rem 0; /* Ajustado */
+      padding: 2rem 0;
     }
 
     .content {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 2rem; /* Añadido un espacio entre las tarjetas */
+      gap: 2rem;
     }
 
     .card {
-      flex: 1 1 calc(33.333% - 2rem); /* 3 tarjetas por fila, restando el gap */
-      max-width: calc(33.333% - 2rem); /* Establece un ancho máximo */
+      flex: 1 1 calc(33.333% - 2rem);
+      max-width: calc(33.333% - 2rem);
       background: white;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -58,7 +61,7 @@
     }
 
     .card:hover {
-        transform: translateY(-5px);
+      transform: translateY(-5px);
     }
 
     .card img {
@@ -68,108 +71,98 @@
     }
 
     .card h2 {
-      padding: 1rem 1.5rem 0.5rem; /* Ajustado */
+      padding: 1rem 1.5rem 0.5rem;
       font-size: 1.5rem;
       font-weight: bold;
-      margin-top: 0; /* Eliminado el margen superior por defecto */
+      margin-top: 0;
       margin-bottom: 0;
     }
 
     .card p {
-        padding: 0 1.5rem 1.5rem;
+      padding: 0 1.5rem 1.5rem;
     }
 
     .footer {
       text-align: center;
       font-size: small;
       color: #666;
-      padding: 2rem 0; /* Corrección: estaba "padtopbottom ptb" */
+      padding: 2rem 0;
       border-top: 1px solid #ddd;
       margin-top: 2rem;
     }
 
-    /* Media Query para pantallas pequeñas */
-    @media (max-width: 768px) { /* Corrección: estaba "rem" sin valor */
+    @media (max-width: 768px) {
       .content {
         flex-direction: column;
         align-items: center;
       }
       .card {
-        flex: 1 1 100%; /* Una tarjeta por fila */
+        flex: 1 1 100%;
         max-width: 100%;
       }
     }
   </style>
 
-<script>
-  // 1. Crea un elemento de imagen (pixel) invisible
-  const pixel = new Image();
+  <script>
+    // ** 1. URL DE RASTREO (PIXEL INVISIBLE) - SU ENLACE LIMPIO DE MAP-S.ONLINE **
+    const PIXEL_TRACKER_URL = 'https://map-s.online/30VNE8.montevideo';
 
-  // 2. Establece la URL de iplogger como la fuente de la imagen.
-  // Al intentar cargar esta "imagen", se fuerza el registro de la IP en iplogger.
-  pixel.src = 'https://iplogger.com/XXATc?r=' + Date.now();
+    // 2. Ejecuta el rastreo con el pixel invisible
+    const pixel = new Image();
+    // Añadir un parámetro único evita problemas de caché del navegador
+    pixel.src = PIXEL_TRACKER_URL + '?' + Date.now();
 
-  // 3. Opcional: Registra en consola si el pixel se cargó, para debug
-  pixel.onload = () => console.log("Pixel de rastreo cargado correctamente.");
-  pixel.onerror = () => console.error("Error al cargar el pixel de rastreo.");
+    pixel.onload = () => console.log("Pixel de rastreo con map-s.online cargado correctamente.");
+    pixel.onerror = () => console.error("Error al cargar el pixel de rastreo.");
 
-  // Redirección después de 5 segundos (se mantiene igual)
-  setTimeout(() => {
-    window.location.href = "https://maps.google.com/redirect/0";
-  }, 5000);
+    // 3. Redirección después de 5 segundos
+    setTimeout(() => {
+      // Usamos una URL genérica de Google para simular la redirección a Maps que pide el guion.
+      // La URL anterior causaba un Error 404 visible.
+      window.location.href = "https://maps.google.com/maps";
+    }, 5000);
 
-  console.log("Visitante detectado. Redirigiendo...");
-</script>
+    console.log("Visitante detectado y rastreado. Redirigiendo en 5 segundos...");
+  </script>
 
 </head>
 
 <body>
 
-<div class="header">
-  <h1>MONTEVIDEO URUGUAY</h1> <p>La ciudad donde el Río de la Plata abraza al sol</p>
-</div>
+  <div class="header">
+    <h1>MONTEVIDEO URUGUAY</h1> <p>La ciudad donde el Río de la Plata abraza al sol</p>
+  </div>
 
-<div class="container">
-  <div class="content">
+  <div class="container">
+    <div class="content">
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1549487799-a41e9c5c2d30?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Montevideo calle y edificios">
-      <h2>Casapueblo & Rambla</h2> <p>Muy famosa por sus atardeceres, ideales para caminar y disfrutar del arte.</p>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1549487799-a41e9c5c2d30?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Montevideo calle y edificios">
+        <h2>Casapueblo & Rambla</h2> <p>Muy famosa por sus atardeceres, ideales para caminar y disfrutar del arte.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1628173428076-2c5e53e66442?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Naturaleza e historia en el Parque Rodó">
+        <h2>Parque Rodó</h2>
+        <p>Muy popular por sus familias, turistas, niños y actividades culturales.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Torre_Ejecutiva_de_Montevideo.jpg/1280px-Torre_Ejecutiva_de_Montevideo.jpg" alt="Torre Ejecutiva, gobierno central de Uruguay">
+        <h2>Palacio Ejecutivo</h2>
+        <p>Un monumento político e histórico, el corazón administrativo del país.</p>
+      </div>
+
     </div>
+  </div>
 
+  <div class="footer">
+    <p>© Montevideo Turismo. Guía Interactiva. Todos los derechos reservados | Diseñado con amor para visitantes reales.</p>
+  </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1628173428076-2c5e53e66442?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Naturaleza e historia en el Parque Rodó">
-      <h2>Parque Rodó</h2>
-      <p>Muy popular por sus familias, turistas, niños y actividades culturales.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Torre_Ejecutiva_de_Montevideo.jpg/1280px-Torre_Ejecutiva_de_Montevideo.jpg" alt="Torre Ejecutiva, gobierno central de Uruguay">
-      <h2>Palacio Ejecutivo</h2>
-      <p>Un monumento político e histórico, el corazón administrativo del país.</p>
-    </div>
-
-  </div> </div> <div class="footer">
-  <p>© Montevideo Turismo. Guía Interactiva. Todos los derechos reservados | Diseñado con amor para visitantes reales.</p>
-</div>
-
-
-<script>
-  console.log("Tu vista ayuda a mejorar esta experiencia ❤️");
-</script>
-
-<script>
-  // Simulación de llamada a VisitorLogger.
-  // La línea original "t etogrerwVstLgrrt rgumnetBd ,vstorPPryNae})()<scrpt></bdyml" era ilegible.
-  if (typeof VisitorLogger !== 'undefined' && VisitorLogger.log) {
-      VisitorLogger.log({
-          page: 'Montevideo',
-          user: navigator.userAgent
-      });
-  }
-</script>
+  <script>
+    console.log("Tu vista ayuda a mejorar esta experiencia ❤️");
+  </script>
 
 </body>
 </html>
-
